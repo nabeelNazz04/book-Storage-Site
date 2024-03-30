@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+  <head>
+    <title>Second Page</title>
+    <style>
+      .move-icon{
+        height:200px;
+      }
+      .books-container {
+        display: flex;
+        flex-wrap: nowrap; /* Prevent wrapping to next line */
+        overflow-x: auto; /* Enable horizontal scrolling */
+      }
+      .move-button{
+        margin-right: 20px;
+        padding:25px;
+        cursor:pointer;
+      }
+      .searchContainer{
+        position: fixed;
+            top: 5px;
+            right: 20px;
+      }
+      .search-icon{
+        height:25px;
+      }
+      .search-button {
+            background-color: transparent;
+            border: none;
+            padding: 1px,9px;
+            cursor: pointer;
+        }
+    </style>
+  </head>
+  <body>
+    <h1>Create/Add books</h1>
+    <div class="searchContainer">
+      <button class="search-button"><img class="search-icon" src="images/searchBar.png"></button>
+    </div>
+      <div class="books-container">
+        <button class="move-button" onclick="addBook('atomicHabits','James Clear');">
+          <img class="move-icon"src="images/atomicHabits.png">
+          <h2>Atomic Habits</h2>
+          <p>Author:James Clear</p>
+        </button>
+        <button class="move-button" onclick="addBook('Aadujeevitham','Benyamin');">
+          <img class="move-icon"src="images/aadujeevitham.png">
+          <h2>Aadujeevitham</h2>
+          <p>Author:Benyamin</p>
+        </button>
+          <button class="move-button" onclick="addBook('Ram C/O Anandhi','Akhil P Dharmajan');">
+            <img class="move-icon" src="images/ram.png">
+            <h2>Ram C/O Anandhi</h2>
+            <p>Author:Akhil P Dharmajan</p>
+          </button>
+          <button class="move-button" onclick="addBook('It Ends With Us','Colleen Hoover');">
+            <img class="move-icon" src="images/endsWithUs.png">
+            <h2>It Ends With Us</h2>
+            <p>Author:Colleen Hoover</p>
+          </button>
+          <button class="move-button" onclick="addBook('Alchemist','Paulo Coelho');">
+            <img class="move-icon" src="images/alchemist.png">
+            <h2>The Alchemist</h2>
+            <p>Author:Paulo Coelho</p>
+          </button>
+          <button class="move-button" onclick="addBook('Harry Potter','J K Rhouling');">
+            <img class="move-icon" src="images/harryPotter.png">
+            <h2>Harry Potter</h2>
+            <p>Author:J K Rhouling</p>
+          </button>
+          <button class="move-button" onclick="addBook('Khasakkinte Ithihasam','O V Vijayan');">
+            <img class="move-icon" src="images/khasakkinteIthihasam.png">
+            <h2>Khasakkinte Ithihasam</h2>
+            <p>Author:O V Vijayan</p>
+          </button>
+          <button class="move-button" onclick="addBook('Wings Of Fire','APJ Abdul Kalam');">
+            <img class="move-icon" src="images/wingsOfFire.png">
+            <h2>Wings OF Fire</h2>
+            <p>Author:APJ Abdul Kalam</p>
+          </button>
+      </div>
+      <p></p>
+    
+    <a href="mainPage.html"class='move-icon'>Home</a>
+    <script>
+      var selectedBooks=JSON.parse(localStorage.getItem('selectedBooks'))||[];
+      function addBook(title,author){
+        // let selectedBooks=JSON.parse(localStorage.getItem('selectedBooks'))||[];
+          selectedBooks.push({title:title,author:author});
+          updateLocalStorage();
+        //redirect to the main page
+        window.location.href="mainPage.html";
+      }
+      function updateLocalStorage(){
+        localStorage.setItem('selectedBooks',JSON.stringify(selectedBooks));
+      }
+    </script>
+  </body>
+

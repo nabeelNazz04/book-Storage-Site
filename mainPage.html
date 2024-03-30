@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+  <head>
+    <title>Main Page</title>
+    <style>
+      a{
+        color:#007bff;
+        font-weight: bold;
+      }
+      .move-icon{
+        height:40px;
+        cursor: pointer;
+      }
+      .border-bottom{
+        border-bottom: 1px solid #ccc;
+        padding-bottom: 10px;
+        margin-bottom: 10px;
+        counter-increment: bookCount;
+      }
+      .title{
+        font-weight: bold;
+      }
+      .styles{
+        background-color: #f0f0f0;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Home Page</h1>
+       <a href="secondPage.html">Create/add books</a>
+       <div class="clickedBookContainer"></div>
+       <button onclick="clearLocalStorage();"><img class="move-icon"src="images/clearButton.png"></button>
+       <div>Clear All</div>
+    <script>
+      let selectedBooks=JSON.parse(localStorage.getItem('selectedBooks'))||[];
+        let clickedBookContainer=document.querySelector('.clickedBookContainer');
+      if(selectedBooks.length>0){
+        clickedBookContainer.innerHTML='<h2>Selected Books</h2>';
+          selectedBooks.forEach(function(book){
+            clickedBookContainer.innerHTML+='<p class="title">Title:'+book.title+'</p>'+
+                                            '<div class="border-bottom styles">Author:'+book.author+'</div>';
+            
+          });
+      }
+      else{
+        clickedBookContainer.innerHTML='<p>No Books Selected</p>';
+      }
+      function removeBook(index){
+        selectedBooks.splice(index,1);
+        updateLocalStorage();
+        refreshDisplay();
+      }
+      function updateLocalStorage(){
+        localStorage.setItem('selectedBooks',JSON.stringify(selectedBooks));
+      }
+      // function refreshDisplay(){
+      //   // clickedBookContainer.innerHTML='';
+      //   selectedBooks.forEach(function(book,index){
+      //     clickedBooksContainer.innerHTML += '<div id="book' + index + '">' +
+      //                    '<p>Title: ' + book.title + ', Author: ' + book.author + '</p>' +
+      //                   '<button onclick="removeBook(' + index + ')">Remove</button>' + '</div>';
+      //   })
+      // }
+      function clearLocalStorage(){
+        localStorage.clear('selectedBooks');
+        location.reload();//Reload the page
+      }
+    </script>
+  </body>
+
