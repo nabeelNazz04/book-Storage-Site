@@ -1,0 +1,20 @@
+a{
+  color:#007bff;
+  font-weight: bold;
+}
+.move-icon{
+  height:40px;
+  cursor: pointer;
+}
+.border-bottom{
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+  counter-increment: bookCount;
+}
+.title{
+  font-weight: bold;
+}
+.styles{
+  background-color: #f0f0f0;
+}
