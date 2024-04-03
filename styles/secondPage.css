@@ -1,0 +1,27 @@
+.move-icon{
+  height:200px;
+}
+.books-container {
+  display: flex;
+  flex-wrap: nowrap; /* Prevent wrapping to next line */
+  overflow-x: auto; /* Enable horizontal scrolling */
+}
+.move-button{
+  margin-right: 20px;
+  padding:25px;
+  cursor:pointer;
+}
+.searchContainer{
+  position: fixed;
+      top: 5px;
+      right: 20px;
+}
+.search-icon{
+  height:25px;
+}
+.search-button {
+      background-color: transparent;
+      border: none;
+      padding: 1px,9px;
+      cursor: pointer;
+  }
