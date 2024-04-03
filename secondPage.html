@@ -1,35 +1,7 @@
 <!DOCTYPE html>
   <head>
     <title>Second Page</title>
-    <style>
-      .move-icon{
-        height:200px;
-      }
-      .books-container {
-        display: flex;
-        flex-wrap: nowrap; /* Prevent wrapping to next line */
-        overflow-x: auto; /* Enable horizontal scrolling */
-      }
-      .move-button{
-        margin-right: 20px;
-        padding:25px;
-        cursor:pointer;
-      }
-      .searchContainer{
-        position: fixed;
-            top: 5px;
-            right: 20px;
-      }
-      .search-icon{
-        height:25px;
-      }
-      .search-button {
-            background-color: transparent;
-            border: none;
-            padding: 1px,9px;
-            cursor: pointer;
-        }
-    </style>
+    <style rel="stylesheet" href="styles/secondPage.css"> </style>
   </head>
   <body>
     <h1>Create/Add books</h1>
@@ -81,18 +53,6 @@
       <p></p>
     
     <a href="mainPage.html"class='move-icon'>Home</a>
-    <script>
-      var selectedBooks=JSON.parse(localStorage.getItem('selectedBooks'))||[];
-      function addBook(title,author){
-        // let selectedBooks=JSON.parse(localStorage.getItem('selectedBooks'))||[];
-          selectedBooks.push({title:title,author:author});
-          updateLocalStorage();
-        //redirect to the main page
-        window.location.href="mainPage.html";
-      }
-      function updateLocalStorage(){
-        localStorage.setItem('selectedBooks',JSON.stringify(selectedBooks));
-      }
-    </script>
+    <script src="scipts/secondPage.js"></script>
   </body>
 
