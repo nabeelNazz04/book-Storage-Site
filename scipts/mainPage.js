@@ -19,14 +19,6 @@ refreshDisplay();
 function updateLocalStorage(){
 localStorage.setItem('selectedBooks',JSON.stringify(selectedBooks));
 }
-// function refreshDisplay(){
-//   // clickedBookContainer.innerHTML='';
-//   selectedBooks.forEach(function(book,index){
-//     clickedBooksContainer.innerHTML += '<div id="book' + index + '">' +
-//                    '<p>Title: ' + book.title + ', Author: ' + book.author + '</p>' +
-//                   '<button onclick="removeBook(' + index + ')">Remove</button>' + '</div>';
-//   })
-// }
 function clearLocalStorage(){
 localStorage.clear('selectedBooks');
 location.reload();//Reload the page
